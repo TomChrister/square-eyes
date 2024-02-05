@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    padding: 8px;
+}
+
+.img-container img {
+    width: 236px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 42%);
+}
