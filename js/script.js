@@ -12,11 +12,14 @@ fetch(`https://api.noroff.dev/api/v1/square-eyes`)
                     <div class="img-div">
                         <img src="${movies[i].image}" alt="poster">
                     </div>
-                        <h2 class="title">${movies[i].title}</h2>
-                </a>        
-                        <span class="description">${movies[i].released}</span>
-                        <span class="description">${movies[i].genre}</span>
-                        <span class="rating">Rating ${movies[i].rating}</span>   
+                </a>
+                <div class="info-div">
+                    <h2 class="title">${movies[i].title}</h2>        
+                    <span class="description">${movies[i].released}</span>
+                    <span class="description">${movies[i].genre}</span>
+                    <span class="rating">Rating ${movies[i].rating}</span>  
+                    <span>Price ${movies[i].price}</span>
+                </div>
             </div>
         `
         }
