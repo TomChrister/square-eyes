@@ -8,14 +8,18 @@ document.addEventListener("DOMContentLoaded", function (){
         .then(movieDetails => {
             const productContainer = document.getElementById("product-container");
             productContainer.innerHTML = `
-            <div class="img-container">
-                <img src="${movieDetails.image}" alt="poster">
-            </div>
-            <h2>${movieDetails.title}</h2>
+            <div>
+                <div class="img-container">
+                    <img src="${movieDetails.image}" alt="poster">
+                </div>
+            <div>
+                <h2>${movieDetails.title}</h2>
                 <p>${movieDetails.description}</p>
                 <p>Genre: ${movieDetails.genre}</p>
                 <p>Released: ${movieDetails.released}</p>
                 <p>Rating: ${movieDetails.rating}</p>
+            </div>
+            </div>
             `;
         });
 });
