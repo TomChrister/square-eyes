@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function (){
                 <div class="img-container">
                     <img src="${movieDetails.image}" alt="poster">
                 </div>
-            <div>
+            <div class="movie-info">
                 <h2>${movieDetails.title}</h2>
                 <p>${movieDetails.description}</p>
                 <p>Genre: ${movieDetails.genre}</p>
