@@ -68,23 +68,6 @@ fetchAndDisplayMovies();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*let moviesContainer = document.getElementById(`movie-container`);
 
 fetch(`https://api.noroff.dev/api/v1/square-eyes`)
