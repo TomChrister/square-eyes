@@ -10,12 +10,12 @@ function fetchAndDisplayMovies() {
                 let priceHTML;
                 if (movie.onSale) {
                     priceHTML = `
-                    <span class="regular-price">${movie.price}</span>
-                    <span>${movie.discountedPrice}</span>
+                    <span class="regular-price">$${movie.price}</span>
+                    <span>$${movie.discountedPrice}</span>
                     `;
                 } else {
                     priceHTML = `
-                    <span>Price: ${movie.price}</span>
+                    <span>$${movie.price}</span>
                     `;
                 }
                 moviesContainer.innerHTML += `

@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function (){
                 <p>Genre: ${movieDetails.genre}</p>
                 <p>Released: ${movieDetails.released}</p>
                 <p>Rating: ${movieDetails.rating}</p>
+                <button>Buy $${movieDetails.discountedPrice}</button>
             </div>
             </div>
             `;
