@@ -31,7 +31,9 @@ function fetchAndDisplayMovies() {
                             <span class="description">${movie.genre}</span>
                             <span class="rating">Rating ${movie.rating}</span>  
                             <span>${priceHTML}</span>
-                            <i class="fa-solid fa-circle-plus" onclick="addToCart(${movie.id})"></i>
+                            <div>
+                                <i class="fa-solid fa-circle-plus"></i>
+                            </div>
                         </div>
                     </div>
                 `;
