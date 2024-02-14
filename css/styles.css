@@ -95,6 +95,24 @@ header {
 }
 
 .img-div {
+    position: relative;
+    display: inline-block;
+}
+
+.img-div img {
+    display: block;
+    max-width: 100%;
+}
+
+.img-div .fa-solid {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    color: white;
+    font-size: 24px;
+}
+
+.img-div {
     width: 306px;
     height: 437px;
     overflow: hidden;
@@ -105,6 +123,11 @@ header {
     height: 100%;
     object-fit: fill;
     border-radius: 8px;
+}
+
+.fa-solid:hover {
+    transition: ease-in-out 0.2ms;
+    color: #d29232;
 }
 
 .movie-link {
