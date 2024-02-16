@@ -1,5 +1,9 @@
 let moviesContainer = document.getElementById(`movie-container`);
 
+function addToCart (movie) {
+    console.log(`added to cart`, movie.title);
+}
+
 function fetchAndDisplayMovies() {
     fetch(`https://api.noroff.dev/api/v1/square-eyes`)
         .then(response => response.json())
@@ -66,3 +70,4 @@ document.getElementById("btnContainer").addEventListener('click', function (even
 
 // Fetch and display movies initially
 fetchAndDisplayMovies();
+
