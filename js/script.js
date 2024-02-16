@@ -31,7 +31,7 @@ function fetchAndDisplayMovies() {
                             <span class="description">${movie.genre}</span>
                             <span class="rating">Rating ${movie.rating}</span>  
                             <span>${priceHTML}</span>
-                            <div>
+                            <div class="plus-div">
                                 <i class="fa-solid fa-circle-plus"></i>
                             </div>
                         </div>
