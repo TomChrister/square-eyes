@@ -121,3 +121,8 @@ footer {
 footer span {
     color: white;
 }
+
+.svg-icons {
+    display: flex;
+    gap: 8px;
+}
