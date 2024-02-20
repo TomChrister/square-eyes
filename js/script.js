@@ -1,8 +1,5 @@
 let moviesContainer = document.getElementById(`movie-container`);
 
-function addToCart (movie) {
-    console.log(`added to cart`, movie.title);
-}
 
 function fetchAndDisplayMovies() {
     fetch(`https://api.noroff.dev/api/v1/square-eyes`)
@@ -42,15 +39,16 @@ function fetchAndDisplayMovies() {
                     </div>
                 `;
             });
+            document.querySelectorAll(`.add-to-cart-btn`). forEach(button => {
+                button.addEventListener(`click`, handleAddToCart);
+            });
         })
         .catch(error => {
             console.error('Error fetching movies:', error);
         });
 }
 
-document.querySelectorAll(`.add-to-cart-btn`). forEach(button => {
-    button.addEventListener(`click`, handleAddToCart);
-});
+let cartArray = [];
 
 function handleAddToCart (event) {
     const button = event.target;
@@ -61,16 +59,22 @@ function handleAddToCart (event) {
     const cartItem = { id, title, price };
     addToCartArray (cartItem);
     updateCartUI (cartItem);
-    toggleCart();
 }
 
 
 function addToCartArray (item) {
-
+    cartArray.push(item);
 }
 
 function updateCartUI (item) {
+    const cartItemsElement = document.getElementById('cartDropdown');
 
+    // Create a new list item element to represent the added item
+    const listItem = document.createElement('li');
+    listItem.textContent = `${item.title} - $${item.price}`;
+
+    // Append the new list item to the cart items element
+    cartItemsElement.appendChild(listItem);
 }
 
 function toggleCart() {
