@@ -234,7 +234,7 @@ footer span {
 
 .fa-x {
     cursor: pointer;
+    display: flex;
 }
-
 
 

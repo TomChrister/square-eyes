@@ -51,43 +51,64 @@ function fetchAndDisplayMovies() {
 
 let cartArray = [];
 
-function handleAddToCart (event) {
+function handleAddToCart(event) {
     const button = event.target;
     const id = button.dataset.id;
     const title = button.dataset.title;
     const price = button.dataset.price;
     const image = button.dataset.image;
-
-    const cartItem = { id, title, price, image };
-    addToCartArray (cartItem);
-    updateCartUI (cartItem);
 }
 
+function addToCartArray(item) {
+    // Check if the item is already in the cart
+    const existingItem = cartArray.find(cartItem => cartItem.id === item.id);
+    if (existingItem) {
+        // If it is, increment its quantity
+        existingItem.quantity++;
+    } else {
+        // Otherwise, add the item to the cart with quantity 1
+        cartArray.push({...item, quantity: 1});
+    }
 
-function addToCartArray (item) {
-    cartArray.push(item);
+    localStorage.setItem('cart', JSON.stringify(cartArray));
 }
 
-function updateCartUI (item) {
-    const cartItemsElement = document.getElementById('cartDropdown');
-
-    // Create a new list item element to represent the added item
-    const listItem = document.createElement('li');
-
-    const img = document.createElement(`img`);
-    img.src = item.image;
-    img.alt = item.title;
-
-    listItem.appendChild(img);
-
-    const textSpan = document.createElement(`span`);
-    textSpan.textContent = `${item.title} - $${item.price}`;
-
-    listItem.appendChild(textSpan);
-
-    // Append the new list item to the cart items element
-    cartItemsElement.appendChild(listItem);
+function removeItemFromCart(id) {
+    // Find the index of the item in the cart array
+    const index = cartArray.findIndex(item => item.id === id);
+    if (index !== -1) {
+        // Remove the item from the cart array
+        cartArray.splice(index, 1);
+        // Update the cart UI
+        updateCartUI();
+    }
 }
+
+function updateCartUI() {
+    const cartItemsElement = document.getElementById('cartItems');
+    // Clear the cart items element before updating
+    cartItemsElement.innerHTML = '';
+
+    // Iterate over the items in the cart and display them
+    cartArray.forEach(item => {
+        const listItem = document.createElement('li');
+        let displayText = `${item.title} - $${item.price}`;
+        // Display the item title and quantity only when quantity is greater than 2
+        if (item.quantity > 1) {
+            displayText += ` ${item.quantity}`;
+        }
+        listItem.textContent = displayText;
+
+        // Create a remove button for each item
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', () => removeItemFromCart(item.id));
+
+        // Append the list item to the cart items element
+        cartItemsElement.appendChild(listItem);
+    });
+}
+
 
 function toggleCart() {
     const cartDropdown = document.getElementById('cartDropdown');
@@ -125,6 +146,15 @@ document.getElementById("btnContainer").addEventListener('click', function (even
         filterMovies(genre);
     }
 });
+
+// Event listener for the "View Movie Details" button
+document.getElementById('viewDetailsButton').addEventListener('click', function() {
+    // Store cart data in localStorage
+    localStorage.setItem('cart', JSON.stringify(cartArray));
+    // Navigate to the next page
+    window.location.href = 'checkout.html';
+});
+
 
 // Fetch and display movies initially
 fetchAndDisplayMovies();
