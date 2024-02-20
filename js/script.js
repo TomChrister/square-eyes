@@ -99,6 +99,10 @@ function updateCartUI() {
         }
         listItem.textContent = displayText;
 
+        const textElement = document.createElement('span');
+        textElement.textContent = displayText;
+        textElement.classList.add('item-text');
+
         // Create a remove button for each item
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
