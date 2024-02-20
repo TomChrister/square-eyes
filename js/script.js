@@ -50,32 +50,71 @@ function fetchAndDisplayMovies() {
 
 let cartArray = [];
 
-function handleAddToCart (event) {
+function handleAddToCart(event) {
     const button = event.target;
     const id = button.dataset.id;
     const title = button.dataset.title;
     const price = button.dataset.price;
 
     const cartItem = { id, title, price };
-    addToCartArray (cartItem);
-    updateCartUI (cartItem);
+    addToCartArray(cartItem);
+    updateCartUI();
+}
+
+function addToCartArray(item) {
+    // Check if the item is already in the cart
+    const existingItem = cartArray.find(cartItem => cartItem.id === item.id);
+    if (existingItem) {
+        // If it is, increment its quantity
+        existingItem.quantity++;
+    } else {
+        // Otherwise, add the item to the cart with quantity 1
+        cartArray.push({...item, quantity: 1});
+    }
+}
+
+function removeItemFromCart(id) {
+    // Find the index of the item in the cart array
+    const index = cartArray.findIndex(item => item.id === id);
+    if (index !== -1) {
+        // Remove the item from the cart array
+        cartArray.splice(index, 1);
+        // Update the cart UI
+        updateCartUI();
+    }
+}
+
+function updateCartUI() {
+    const cartItemsElement = document.getElementById('cartItems');
+    // Clear the cart items element before updating
+    cartItemsElement.innerHTML = '';
+
+    // Iterate over the items in the cart and display them
+    cartArray.forEach(item => {
+        const listItem = document.createElement('li');
+        let displayText = `${item.title} - $${item.price}`;
+        // Display the item title and quantity only when quantity is greater than 2
+        if (item.quantity > 1) {
+            displayText += ` (${item.quantity})`;
+        }
+        listItem.textContent = displayText;
+
+        // Create a remove button for each item
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', () => removeItemFromCart(item.id));
+
+        // Append the remove button to the list item
+        listItem.appendChild(removeButton);
+
+        // Append the list item to the cart items element
+        cartItemsElement.appendChild(listItem);
+    });
 }
 
 
-function addToCartArray (item) {
-    cartArray.push(item);
-}
 
-function updateCartUI (item) {
-    const cartItemsElement = document.getElementById('cartDropdown');
 
-    // Create a new list item element to represent the added item
-    const listItem = document.createElement('li');
-    listItem.textContent = `${item.title} - $${item.price}`;
-
-    // Append the new list item to the cart items element
-    cartItemsElement.appendChild(listItem);
-}
 
 function toggleCart() {
     const cartDropdown = document.getElementById('cartDropdown');
