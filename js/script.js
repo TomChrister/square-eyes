@@ -94,14 +94,10 @@ function updateCartUI() {
         const listItem = document.createElement('li');
         let displayText = `${item.title} - $${item.price}`;
         // Display the item title and quantity only when quantity is greater than 2
-        if (item.quantity > 2) {
-            displayText += ` (${item.quantity})`;
+        if (item.quantity > 1) {
+            displayText += ` ${item.quantity}`;
         }
         listItem.textContent = displayText;
-
-        const textElement = document.createElement('span');
-        textElement.textContent = displayText;
-        textElement.classList.add('item-text');
 
         // Create a remove button for each item
         const removeButton = document.createElement('button');
