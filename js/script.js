@@ -19,6 +19,7 @@ function fetchAndDisplayMovies() {
                     <span>$${movie.price}</span>
                     `;
                 }
+
                 moviesContainer.innerHTML += `
                     <div class="movie-container" data-genre="${movie.genre}">
                         <a href="product-page.html?id=${movie.id}" class="movie-link">
@@ -55,8 +56,9 @@ function handleAddToCart (event) {
     const id = button.dataset.id;
     const title = button.dataset.title;
     const price = button.dataset.price;
+    const image = button.dataset.image;
 
-    const cartItem = { id, title, price };
+    const cartItem = { id, title, price, image };
     addToCartArray (cartItem);
     updateCartUI (cartItem);
 }
@@ -71,7 +73,17 @@ function updateCartUI (item) {
 
     // Create a new list item element to represent the added item
     const listItem = document.createElement('li');
-    listItem.textContent = `${item.title} - $${item.price}`;
+
+    const img = document.createElement(`img`);
+    img.src = item.image;
+    img.alt = item.title;
+
+    listItem.appendChild(img);
+
+    const textSpan = document.createElement(`span`);
+    textSpan.textContent = `${item.title} - $${item.price}`;
+
+    listItem.appendChild(textSpan);
 
     // Append the new list item to the cart items element
     cartItemsElement.appendChild(listItem);
