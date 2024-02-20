@@ -229,7 +229,8 @@ footer span {
 }
 
 .cart-dropdown {
-    display: none; /
+    display: none;
+    position: fixed;
 }
 
 .fa-x {
@@ -237,6 +238,7 @@ footer span {
     display: flex;
 }
 
-.item-text {
+#cartItems {
     list-style-type: none;
+    padding: 0;
 }
