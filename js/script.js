@@ -71,6 +71,8 @@ function addToCartArray(item) {
         // Otherwise, add the item to the cart with quantity 1
         cartArray.push({...item, quantity: 1});
     }
+
+    localStorage.setItem('cart', JSON.stringify(cartArray));
 }
 
 function removeItemFromCart(id) {
@@ -95,7 +97,7 @@ function updateCartUI() {
         let displayText = `${item.title} - $${item.price}`;
         // Display the item title and quantity only when quantity is greater than 2
         if (item.quantity > 1) {
-            displayText += ` (${item.quantity})`;
+            displayText += ` ${item.quantity}`;
         }
         listItem.textContent = displayText;
 
@@ -111,9 +113,6 @@ function updateCartUI() {
         cartItemsElement.appendChild(listItem);
     });
 }
-
-
-
 
 
 function toggleCart() {
@@ -152,6 +151,15 @@ document.getElementById("btnContainer").addEventListener('click', function (even
         filterMovies(genre);
     }
 });
+
+// Event listener for the "View Movie Details" button
+document.getElementById('viewDetailsButton').addEventListener('click', function() {
+    // Store cart data in localStorage
+    localStorage.setItem('cart', JSON.stringify(cartArray));
+    // Navigate to the next page
+    window.location.href = 'checkout.html';
+});
+
 
 // Fetch and display movies initially
 fetchAndDisplayMovies();
