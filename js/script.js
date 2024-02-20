@@ -1,6 +1,5 @@
 let moviesContainer = document.getElementById(`movie-container`);
 
-
 function fetchAndDisplayMovies() {
     fetch(`https://api.noroff.dev/api/v1/square-eyes`)
         .then(response => response.json())
@@ -56,7 +55,10 @@ function handleAddToCart(event) {
     const id = button.dataset.id;
     const title = button.dataset.title;
     const price = button.dataset.price;
-    const image = button.dataset.image;
+
+    const cartItem = { id, title, price };
+    addToCartArray(cartItem);
+    updateCartUI();
 }
 
 function addToCartArray(item) {
@@ -69,8 +71,6 @@ function addToCartArray(item) {
         // Otherwise, add the item to the cart with quantity 1
         cartArray.push({...item, quantity: 1});
     }
-
-    localStorage.setItem('cart', JSON.stringify(cartArray));
 }
 
 function removeItemFromCart(id) {
@@ -94,8 +94,8 @@ function updateCartUI() {
         const listItem = document.createElement('li');
         let displayText = `${item.title} - $${item.price}`;
         // Display the item title and quantity only when quantity is greater than 2
-        if (item.quantity > 1) {
-            displayText += ` ${item.quantity}`;
+        if (item.quantity > 2) {
+            displayText += ` (${item.quantity})`;
         }
         listItem.textContent = displayText;
 
@@ -104,17 +104,18 @@ function updateCartUI() {
         removeButton.textContent = 'Remove';
         removeButton.addEventListener('click', () => removeItemFromCart(item.id));
 
+        // Append the remove button to the list item
+        listItem.appendChild(removeButton);
+
         // Append the list item to the cart items element
         cartItemsElement.appendChild(listItem);
     });
 }
 
-
 function toggleCart() {
     const cartDropdown = document.getElementById('cartDropdown');
     cartDropdown.classList.toggle('show');
 }
-
 
 const closeButton = document.getElementById('closeButton');
 // Get the dropdown menu element
@@ -125,7 +126,6 @@ closeButton.addEventListener('click', function() {
     // Toggle the 'show' class of the dropdown menu
     cartDropdown.classList.toggle('show');
 });
-
 
 function filterMovies(genre) {
     const movieContainers = document.querySelectorAll('.movie-container');
@@ -155,7 +155,5 @@ document.getElementById('viewDetailsButton').addEventListener('click', function(
     window.location.href = 'checkout.html';
 });
 
-
 // Fetch and display movies initially
 fetchAndDisplayMovies();
-
