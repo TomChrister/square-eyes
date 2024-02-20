@@ -19,6 +19,7 @@ function fetchAndDisplayMovies() {
                     <span>$${movie.price}</span>
                     `;
                 }
+
                 moviesContainer.innerHTML += `
                     <div class="movie-container" data-genre="${movie.genre}">
                         <a href="product-page.html?id=${movie.id}" class="movie-link">
@@ -55,10 +56,7 @@ function handleAddToCart(event) {
     const id = button.dataset.id;
     const title = button.dataset.title;
     const price = button.dataset.price;
-
-    const cartItem = { id, title, price };
-    addToCartArray(cartItem);
-    updateCartUI();
+    const image = button.dataset.image;
 }
 
 function addToCartArray(item) {
@@ -105,9 +103,6 @@ function updateCartUI() {
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
         removeButton.addEventListener('click', () => removeItemFromCart(item.id));
-
-        // Append the remove button to the list item
-        listItem.appendChild(removeButton);
 
         // Append the list item to the cart items element
         cartItemsElement.appendChild(listItem);
