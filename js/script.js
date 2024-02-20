@@ -35,8 +35,8 @@ function fetchAndDisplayMovies() {
                             <span class="description">${movie.genre}</span>
                             <span class="rating">Rating ${movie.rating}</span>  
                             <span>${priceHTML}</span>
-                            <div class="plus-div">
-                                <i class="fa-solid fa-circle-plus"></i>
+                            <div class="button-div">
+                                <button class="add-to-cart-btn" data-id="${movie.id}" data-title="${movie.title}" data-price="${movie.price}">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -47,6 +47,48 @@ function fetchAndDisplayMovies() {
             console.error('Error fetching movies:', error);
         });
 }
+
+document.querySelectorAll(`.add-to-cart-btn`). forEach(button => {
+    button.addEventListener(`click`, handleAddToCart);
+});
+
+function handleAddToCart (event) {
+    const button = event.target;
+    const id = button.dataset.id;
+    const title = button.dataset.title;
+    const price = button.dataset.price;
+
+    const cartItem = { id, title, price };
+    addToCartArray (cartItem);
+    updateCartUI (cartItem);
+    toggleCart();
+}
+
+
+function addToCartArray (item) {
+
+}
+
+function updateCartUI (item) {
+
+}
+
+function toggleCart() {
+    const cartDropdown = document.getElementById('cartDropdown');
+    cartDropdown.classList.toggle('show');
+}
+
+
+const closeButton = document.getElementById('closeButton');
+// Get the dropdown menu element
+const cartDropdown = document.getElementById('cartDropdown');
+
+// Add a click event listener to the close button
+closeButton.addEventListener('click', function() {
+    // Toggle the 'show' class of the dropdown menu
+    cartDropdown.classList.toggle('show');
+});
+
 
 function filterMovies(genre) {
     const movieContainers = document.querySelectorAll('.movie-container');
