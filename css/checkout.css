@@ -106,3 +106,24 @@ footer span {
     display: flex;
     gap: 8px;
 }
+
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.checkout-overview {
+    display: flex;
+    justify-content: center;
+}
+
+#cartList {
+    list-style-type: none;
+}
+
+#cartList li {
+    display: flex;
+    justify-content: center;
+}
