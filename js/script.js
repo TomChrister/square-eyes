@@ -95,13 +95,14 @@ function updateCartUI() {
         let displayText = `${item.title} - $${item.price}`;
         // Display the item title and quantity only when quantity is greater than 2
         if (item.quantity > 1) {
-            displayText += ` ${item.quantity}`;
+            displayText += ` (${item.quantity})`;
         }
         listItem.textContent = displayText;
 
         // Create a remove button for each item
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
+        removeButton.classList.add(`remove-button`);
         removeButton.addEventListener('click', () => removeItemFromCart(item.id));
 
         // Append the remove button to the list item
