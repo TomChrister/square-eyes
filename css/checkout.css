@@ -173,3 +173,70 @@ footer span {
 .checkbox-container label {
     margin-left: 8px; /* Adjust margin for spacing */
 }
+
+.form-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+}
+
+#fname, #lname, #email {
+    margin-bottom: 16px;
+}
+
+.card-inputs {
+    margin-bottom: 16px;
+}
+
+.checkbox-container {
+    margin-bottom: 16px;
+}
+
+form label {
+    margin-bottom: 2px;
+
+}
+
+form input {
+    font-size: 20px;
+    border-radius: 4px;
+    border: 0;
+}
+
+#number {
+    font-size: 18px;
+    border-radius: 4px 4px 0 0;
+    border: 0;
+}
+
+#expirationMonth {
+    font-size: 18px;
+    border-radius: 0 0 0 4px;
+    border: 0;
+    border-right: 1px solid grey;
+}
+
+#expirationYear {
+    font-size: 18px;
+    border-radius: 0 0 4px 0;;
+    border: 0;
+}
+
+.expiration-inputs {
+    display: flex;
+}
+
+.card-inputs {
+    border-top: 1px solid grey;
+}
+
+::placeholder {
+    font-size: 14px;
+}
+
