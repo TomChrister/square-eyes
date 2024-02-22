@@ -89,7 +89,7 @@ header {
 }
 
 footer {
-    padding: 60px 0 0 0;
+    padding: 120px 0 0 0;
 }
 
 .footer-div {
@@ -110,14 +110,15 @@ footer span {
 
 .checkout-container {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     color: white;
+    justify-content: space-between;
 }
 
 .checkout-overview {
     display: flex;
     justify-content: flex-start;
+    font-size: 28px;
 }
 
 #cartList {
@@ -125,10 +126,16 @@ footer span {
     padding: 0;
     display: flex;
     flex-direction: column;
+    gap: 18px;
 }
 
 #cartList li {
     display: flex;
+    font-size: 20px;
+}
+
+#cartList p {
+    font-size: 20px;
 }
 
 .button-container {
@@ -142,8 +149,14 @@ footer span {
 }
 
 .purchase-button {
-    width: 100px;
-    height: 26px;
+    width: 122px;
+    height: 34px;
+    background-color: #e07d1e;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
 }
 
 .body-container {
@@ -153,9 +166,10 @@ footer span {
 
 .vertical-line {
     width: 1px;
-    height: 100px;
+    height: 412px;
     background-color: white;
     margin: 0 100px 0 100px;
+    opacity: 0.7;
 }
 
 .form-div form {
@@ -173,3 +187,71 @@ footer span {
 .checkbox-container label {
     margin-left: 8px; /* Adjust margin for spacing */
 }
+
+.form-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 28px;
+    padding-bottom: 42px;
+}
+
+#fname, #lname, #email {
+    margin-bottom: 16px;
+}
+
+.card-inputs {
+    margin-bottom: 16px;
+}
+
+.checkbox-container {
+    margin-bottom: 16px;
+}
+
+form label {
+    margin-bottom: 2px;
+
+}
+
+form input {
+    font-size: 20px;
+    border-radius: 4px;
+    border: 0;
+}
+
+#number {
+    font-size: 18px;
+    border-radius: 4px 4px 0 0;
+    border: 0;
+}
+
+#expirationMonth {
+    font-size: 18px;
+    border-radius: 0 0 0 4px;
+    border: 0;
+    border-right: 1px solid grey;
+}
+
+#expirationYear {
+    font-size: 18px;
+    border-radius: 0 0 4px 0;;
+    border: 0;
+}
+
+.expiration-inputs {
+    display: flex;
+}
+
+.card-inputs {
+    border-top: 1px solid grey;
+}
+
+::placeholder {
+    font-size: 14px;
+}
+
