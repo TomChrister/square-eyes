@@ -41,13 +41,23 @@ document.addEventListener('DOMContentLoaded', function() {
             formDiv.appendChild(purchaseButton);
         }
 
+        // Create a div to wrap the total sum paragraph
+        const totalSumWrapper = document.createElement('div');
+
+        // Create the total sum paragraph
         const totalSumElement = document.createElement('p');
         totalSumElement.textContent = `Total: $${totalSum.toFixed(2)}`;
-        cartListElement.appendChild(totalSumElement);
+
+        // Append the total sum paragraph to the div
+        totalSumWrapper.appendChild(totalSumElement);
+
+        // Append the div to the parent element of cartListElement
+        cartListElement.parentNode.appendChild(totalSumWrapper);
     } else {
         // Handle case when cart is empty
         const emptyCartMessage = document.createElement('p');
         emptyCartMessage.textContent = 'Your cart is empty.';
         cartListElement.appendChild(emptyCartMessage);
     }
+
 });

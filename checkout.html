@@ -5,6 +5,7 @@
     <title>Checkout</title>
     <script src="js/script.js" defer></script>
     <script src="js/checkout.js"></script>
+    <script src="https://kit.fontawesome.com/fe924a0d6e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/checkout.css">
 </head>
 <body>
@@ -35,7 +36,7 @@
     <div class="mobile-header">
         <nav>
             <ul class="nav-list">
-                <li>Home</li>
+                <li><a href="index.html">Home</a></li>
                 <li>Movies</li>
             </ul>
         </nav>
@@ -67,6 +68,7 @@
     <div class="vertical-line"></div>
 
     <div class="form-div">
+        <span class="payment">Payment details</span>
         <form>
             <label for="fname">First name</label>
             <input type="text" id="fname">
@@ -74,11 +76,18 @@
             <input type="text" id="lname">
             <label for="email">Email</label>
             <input type="email" id="email">
+            <label for="number">Card information</label>
+            <input type="text" id="number" placeholder="1234 1234 1234 1234">
+            <div class="card-inputs">
+                <div class="expiration-inputs">
+                    <input type="text" id="expirationMonth" name="expirationMonth" placeholder="MM/YY">
+                    <input type="text" id="expirationYear" name="expirationYear" placeholder="CVC">
+                </div>
+            </div>
             <div class="checkbox-container">
                 <input type="checkbox" id="conditions">
                 <label for="conditions">I have read the terms and conditions</label>
             </div>
-
         </form>
     </div>
 </div>

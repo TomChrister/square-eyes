@@ -6,7 +6,7 @@
 
 body {
     padding: 8px;
-    background-color: #181717;
+    background-color: #252627;
 }
 
 .mobile-header {
@@ -115,6 +115,21 @@ header {
 
 .button-div button {
     cursor: pointer;
+    background-color: #c8831c;
+    border-radius: 6px;
+    font-size: 16px;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    width: 116px;
+    height: 32px;
+    align-items: center;
+    color: white;
+}
+
+.button-div button:hover {
+    transition: ease-in-out 2ms;
+    background-color: #856123;
 }
 
 .img-div {
@@ -175,12 +190,12 @@ header {
     gap: 46px;
     border: 0;
     color: white;
-    background-color: rgb(60, 60, 60);
+    background-color: #4B5043;
     cursor: pointer;
 }
 
 .btn:hover {
-    background-color: rgb(127 123 123);
+    background-color: #6a736a;
     transition: 0.2s ease-in-out;
 }
 
@@ -209,7 +224,8 @@ footer span {
 
 .svg-icons {
     display: flex;
-    gap: 8px;
+    position: fixed;
+    z-index: 100;
 }
 
 .cart-dropdown {
@@ -220,8 +236,8 @@ footer span {
     background-color: #fff;
     padding: 10px;
     z-index: 10;
-    width: 392px;
-    height: 44%;
+    width: 438px;
+    height: 60%;
     border-radius: 4px 0 0 4px;
     box-shadow: 0 1px 6px rgba(227, 162, 66, 0.42);
 }
