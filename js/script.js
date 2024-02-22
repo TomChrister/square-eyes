@@ -1,4 +1,9 @@
 let moviesContainer = document.getElementById(`movie-container`);
+let cartArray = [];
+const cartCounterElement = document.querySelector(`.cart-counter`);
+const closeButton = document.getElementById('closeButton');
+const cartDropdown = document.getElementById('cartDropdown');
+
 
 function fetchAndDisplayMovies() {
     fetch(`https://api.noroff.dev/api/v1/square-eyes`)
@@ -48,8 +53,6 @@ function fetchAndDisplayMovies() {
         });
 }
 
-let cartArray = [];
-
 function handleAddToCart(event) {
     const button = event.target;
     const id = button.dataset.id;
@@ -85,9 +88,13 @@ function removeItemFromCart(id) {
 }
 
 function updateCartUI() {
+    cartCounterElement.textContent = cartArray.reduce((total, item) => total + item.quantity, 0);
+
     const cartItemsElement = document.getElementById('cartItems');
     // Clear the cart items element before updating
     cartItemsElement.innerHTML = '';
+
+    let totalCost = 0;
 
     // Iterate over the items in the cart and display them
     cartArray.forEach(item => {
@@ -110,17 +117,18 @@ function updateCartUI() {
 
         // Append the list item to the cart items element
         cartItemsElement.appendChild(listItem);
+
+        totalCost += item.price * item.quantity;
     });
+
+    const totalCostElement = document.getElementById(`totalCost`);
+    totalCostElement.textContent = `Total: $${totalCost.toFixed(2)}`;
 }
 
 function toggleCart() {
     const cartDropdown = document.getElementById('cartDropdown');
     cartDropdown.classList.toggle('show');
 }
-
-const closeButton = document.getElementById('closeButton');
-// Get the dropdown menu element
-const cartDropdown = document.getElementById('cartDropdown');
 
 // Add a click event listener to the close button
 closeButton.addEventListener('click', function() {

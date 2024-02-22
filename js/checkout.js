@@ -6,16 +6,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Display cart information (for example, in a list)
     const cartListElement = document.getElementById('cartList');
+    let totalSum = 0;
+
     if (cartArray && cartArray.length > 0) {
         cartArray.forEach(item => {
             const listItem = document.createElement('li');
             listItem.textContent = `${item.title} - $${item.price} (Quantity: ${item.quantity})`;
             cartListElement.appendChild(listItem);
+
+            totalSum += item.price * item.quantity;
         });
 
-        // Add purchase button
-        const purchaseButton = document.createElement('button');
-        purchaseButton.textContent = 'Purchase';
+        const totalSumElement = document.createElement(`p`);
+        totalSumElement.textContent = `Total: $${totalSum.toFixed(2)}`;
+        totalSumElement.classList.add(`total-sum`);
+        cartListElement.appendChild(totalSumElement);
+
+        const purchaseButton = document.createElement(`button`);
+        purchaseButton.textContent = `Purchase`;
+        purchaseButton.classList.add(`purchase-button`);
+
+        const buttonContainer = document.createElement(`div`);
+        buttonContainer.classList.add(`button-container`);
+
+        buttonContainer.appendChild(purchaseButton);
+
+        document.body.appendChild(purchaseButton);
+
         purchaseButton.addEventListener('click', function() {
             // Store cart data in localStorage
             localStorage.setItem('cartDataForConfirmation', JSON.stringify(cartArray));
