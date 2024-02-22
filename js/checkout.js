@@ -17,30 +17,33 @@ document.addEventListener('DOMContentLoaded', function() {
             totalSum += item.price * item.quantity;
         });
 
-        const totalSumElement = document.createElement(`p`);
-        totalSumElement.textContent = `Total: $${totalSum.toFixed(2)}`;
-        totalSumElement.classList.add(`total-sum`);
-        cartListElement.appendChild(totalSumElement);
+        const purchaseButton = document.createElement('button');
+        purchaseButton.textContent = 'Purchase';
+        purchaseButton.classList.add('purchase-button');
 
-        const purchaseButton = document.createElement(`button`);
-        purchaseButton.textContent = `Purchase`;
-        purchaseButton.classList.add(`purchase-button`);
-
-        const buttonContainer = document.createElement(`div`);
-        buttonContainer.classList.add(`button-container`);
-
-        buttonContainer.appendChild(purchaseButton);
-
-        document.body.appendChild(purchaseButton);
-
-        purchaseButton.addEventListener('click', function() {
+        // Define the function to handle the click event
+        function purchaseButtonClickHandler() {
             // Store cart data in localStorage
             localStorage.setItem('cartDataForConfirmation', JSON.stringify(cartArray));
             // Redirect to order confirmation page
             window.location.href = 'confirmation.html'; // Change the URL to your order confirmation page
-        });
-        cartListElement.appendChild(purchaseButton);
+        }
 
+        // Attach the event listener to the new button
+        purchaseButton.addEventListener('click', purchaseButtonClickHandler);
+
+        // Find the form-div element in the HTML
+        const formDiv = document.querySelector('.form-div');
+
+        // Check if the form-div element exists
+        if (formDiv) {
+            // Append the purchaseButton HTML to the form-div
+            formDiv.appendChild(purchaseButton);
+        }
+
+        const totalSumElement = document.createElement('p');
+        totalSumElement.textContent = `Total: $${totalSum.toFixed(2)}`;
+        cartListElement.appendChild(totalSumElement);
     } else {
         // Handle case when cart is empty
         const emptyCartMessage = document.createElement('p');
@@ -48,5 +51,3 @@ document.addEventListener('DOMContentLoaded', function() {
         cartListElement.appendChild(emptyCartMessage);
     }
 });
-
-
