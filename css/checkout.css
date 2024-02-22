@@ -1,12 +1,13 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    font-family: ;
+    font-family: Montserrat, sans-serif;
 }
 
 body {
     padding: 8px;
     background-color: #181717;
+    color: white;
 }
 
 .mobile-header {
@@ -116,14 +117,59 @@ footer span {
 
 .checkout-overview {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 #cartList {
     list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 #cartList li {
     display: flex;
+}
+
+.button-container {
+    display: flex;
     justify-content: center;
+}
+
+.total-sum {
+    display: flex;
+    justify-content: center;
+}
+
+.purchase-button {
+    width: 100px;
+    height: 26px;
+}
+
+.body-container {
+    display: flex;
+    justify-content: center;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 100px;
+    background-color: white;
+    margin: 0 100px 0 100px;
+}
+
+.form-div form {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items vertically */
+}
+
+/* Style the label to ensure it aligns correctly */
+.checkbox-container label {
+    margin-left: 8px; /* Adjust margin for spacing */
 }
