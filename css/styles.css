@@ -132,7 +132,7 @@ header {
 
 .fa-solid:hover {
     transition: ease-in-out 0.2ms;
-    color: #d29232;
+    color: #75706c;
 }
 
 .movie-link {
@@ -256,7 +256,7 @@ footer span {
 
 #viewDetailsButton {
     position: absolute;
-    top: 82%;
+    top: 90%;
     border-radius: 4px;
     border: 0;
     width: 88px;
@@ -264,6 +264,11 @@ footer span {
     color: white;
     cursor: pointer;
     background-color: rgb(60, 60, 60);;
+}
+
+#viewDetailsButton:hover {
+    background-color: rgb(127 123 123);
+    transition: 0.1s ease-in;
 }
 
 .cart-overview {
@@ -279,4 +284,7 @@ footer span {
     cursor: pointer;
 }
 
-.quantity
+#totalCost {
+    position: absolute;
+    top: 84%;
+}
