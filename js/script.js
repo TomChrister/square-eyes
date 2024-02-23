@@ -33,10 +33,7 @@ function fetchAndDisplayMovies() {
                         </a>
                         <div class="info-div">
                             <h2 class="title">${movie.title}</h2>        
-                            <span class="description">${movie.released}</span>
-                            <span class="description">${movie.genre}</span>
-                            <span class="rating">Rating ${movie.rating}</span>  
-                            <span>${priceHTML}</span>
+                            <span class="description">${movie.released} - ${priceHTML}</span>                
                             <div class="button-div">
                                 <button class="add-to-cart-btn" data-id="${movie.id}" data-title="${movie.title}" data-price="${movie.price}">Add to cart</button>
                             </div>
@@ -49,7 +46,6 @@ function fetchAndDisplayMovies() {
             });
         })
         .catch(error => {
-            console.error('Error fetching movies:', error);
         });
 }
 
