@@ -53,6 +53,15 @@ function fetchAndDisplayMovies() {
         });
 }
 
+cartArray = JSON.parse(localStorage.getItem('cartArray')) || [];
+
+// Call updateCartUI to display the cart items on page load
+updateCartUI();
+
+function saveCartArrayToLocalStorage() {
+    localStorage.setItem('cartArray', JSON.stringify(cartArray));
+}
+
 function handleAddToCart(event) {
     const button = event.target;
     const id = button.dataset.id;
@@ -74,6 +83,8 @@ function addToCartArray(item) {
         // Otherwise, add the item to the cart with quantity 1
         cartArray.push({...item, quantity: 1});
     }
+
+    saveCartArrayToLocalStorage();
 }
 
 function removeItemFromCart(id) {
@@ -84,6 +95,7 @@ function removeItemFromCart(id) {
         cartArray.splice(index, 1);
         // Update the cart UI
         updateCartUI();
+        saveCartArrayToLocalStorage();
     }
 }
 
