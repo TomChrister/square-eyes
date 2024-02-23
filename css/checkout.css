@@ -28,7 +28,8 @@ header {
     z-index: 1;
     height: 86px;
     font-family: Barlow, sans-serif;
-    margin: 0 46px 0 46px;}
+    margin: 0 46px 54px 46px;
+}
 
 .nav-list {
     list-style-type: none;
@@ -151,7 +152,7 @@ footer span {
 .purchase-button {
     width: 122px;
     height: 34px;
-    background-color: #e07d1e;
+    background-color: #ab5400;
     border: 0;
     border-radius: 4px;
     font-size: 16px;
@@ -160,8 +161,7 @@ footer span {
 }
 
 .purchase-button:hover {
-    transition: ease-in-out 2ms;
-    background-color: #a05b18;
+
 }
 
 .body-container {
@@ -172,7 +172,7 @@ footer span {
 .vertical-line {
     width: 1px;
     height: 412px;
-    background-color: white;
+    background-color: #96570b;
     margin: 0 100px 0 100px;
     opacity: 0.7;
 }
@@ -260,3 +260,7 @@ form input {
     font-size: 14px;
 }
 
+.p-total {
+    font-size: 20px;
+    color: #e07d1e;
+}
