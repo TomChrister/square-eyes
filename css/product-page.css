@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    font-family: Montserrat, sans-serif;
 }
 
 body {
@@ -26,7 +27,7 @@ header {
     z-index: 1;
     height: 86px;
     font-family: Barlow, sans-serif;
-    margin: 0 46px 0 46px;}
+    margin: 0 46px 20px 46px;}
 
 .nav-list {
     list-style-type: none;
@@ -178,12 +179,12 @@ footer span {
     height: 28px;
     color: white;
     cursor: pointer;
-    background-color: rgb(60, 60, 60);;
+    background-color: #e07d1e;
 }
 
 #viewDetailsButton:hover {
-    background-color: rgb(127 123 123);
-    transition: 0.1s ease-in;
+    background-color: #96570b;
+    transition: 0.2ms ease-in;
 }
 
 .cart-overview {

@@ -27,7 +27,8 @@ header {
     z-index: 1;
     height: 86px;
     font-family: Barlow, sans-serif;
-    margin: 0 46px 0 46px;}
+    margin: 0 46px 20px 46px;
+}
 
 .nav-list {
     list-style-type: none;
