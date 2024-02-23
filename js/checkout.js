@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Retrieve cart data from localStorage
-    const cartData = localStorage.getItem('cart');
+    const cartData = localStorage.getItem('cartArray'); // Change 'cart' to 'cartArray'
     // Parse the JSON string to get the cart array
-    const cartArray = JSON.parse(cartData);
+    const cartArray = JSON.parse(cartData) || []; // Initialize as an empty array if no data is present
 
     // Display cart information (for example, in a list)
     const cartListElement = document.getElementById('cartList');
@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Create the total sum paragraph
         const totalSumElement = document.createElement('p');
+        totalSumElement.classList.add(`p-total`)
         totalSumElement.textContent = `Total: $${totalSum.toFixed(2)}`;
 
         // Append the total sum paragraph to the div

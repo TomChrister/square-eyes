@@ -115,7 +115,7 @@ header {
 
 .button-div button {
     cursor: pointer;
-    background-color: #c8831c;
+    background-color: #e07d1e;
     border-radius: 6px;
     font-size: 16px;
     border: 0;
@@ -129,7 +129,7 @@ header {
 
 .button-div button:hover {
     transition: ease-in-out 2ms;
-    background-color: #856123;
+    background-color: #96570b;
 }
 
 .img-div {
@@ -190,12 +190,12 @@ header {
     gap: 46px;
     border: 0;
     color: white;
-    background-color: #4B5043;
+    background-color: #e07d1e;
     cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #6a736a;
+    background-color: #96570b;
     transition: 0.2s ease-in-out;
 }
 
@@ -279,12 +279,12 @@ footer span {
     height: 28px;
     color: white;
     cursor: pointer;
-    background-color: rgb(60, 60, 60);;
+    background-color: #e07d1e;
 }
 
 #viewDetailsButton:hover {
-    background-color: rgb(127 123 123);
-    transition: 0.1s ease-in;
+    background-color: #96570b;
+    transition: 0.2ms ease-in;
 }
 
 .cart-overview {
