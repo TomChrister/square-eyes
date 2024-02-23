@@ -43,7 +43,7 @@ header {
 .nav-list li {
     display: flex;
     justify-content: center;
-    margin: 30px;
+    margin: 20px 96px 0 0;
     cursor: pointer;
 }
 
@@ -129,6 +129,11 @@ header {
 }
 
 .button-div button:hover {
+    background-color: #96570b;
+    transition: 0.2ms ease-in;
+}
+
+.button-div button:hover {
     transition: ease-in-out 2ms;
 
 }
@@ -162,16 +167,19 @@ header {
 
 .title {
     font-size: 20px;
+    font-weight: 500;
 }
 
 .info-div {
     padding: 10px 0 0 0;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .regular-price {
     text-decoration: line-through;
+    color: #f55959;
 }
 
 #btnContainer {
@@ -196,6 +204,11 @@ header {
 }
 
 .btn:hover {
+    background-color: #96570b;
+    transition: 0.2ms ease-in;
+}
+
+.btn:hover {
 
     transition: 0.2s ease-in-out;
 }
@@ -209,7 +222,7 @@ header {
 }
 
 footer {
-    padding: 60px 0 0 0;
+    padding: 90px 0 0 0;
 }
 
 .footer-div {
@@ -226,7 +239,7 @@ footer span {
 .svg-icons {
     display: flex;
     position: fixed;
-    z-index: 100;
+    z-index: 1;
 }
 
 .cart-dropdown {
@@ -305,3 +318,40 @@ footer span {
     position: absolute;
     top: 84%;
 }
+
+/*
+.hidden {
+    display: none;
+}
+
+#loadingIndicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+.loading-text {
+    font-size: 18px;
+    color: #333;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+*/
