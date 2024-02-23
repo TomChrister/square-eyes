@@ -4,7 +4,6 @@ const cartCounterElement = document.querySelector(`.cart-counter`);
 const closeButton = document.getElementById('closeButton');
 const cartDropdown = document.getElementById('cartDropdown');
 
-
 function fetchAndDisplayMovies() {
     fetch(`https://api.noroff.dev/api/v1/square-eyes`)
         .then(response => response.json())
@@ -174,3 +173,20 @@ document.getElementById('viewDetailsButton').addEventListener('click', function(
 
 // Fetch and display movies initially
 fetchAndDisplayMovies();
+/*
+const fetchDataBtn = document.getElementById('fetchDataBtn');
+const loadingIndicator = document.getElementById('loadingIndicator');
+
+fetchDataBtn.addEventListener('click', () => {
+    // Show loading indicator
+    loadingIndicator.classList.remove('hidden');
+
+    // Simulate asynchronous action (fetching data)
+    setTimeout(() => {
+        // After a delay, hide loading indicator
+        loadingIndicator.classList.add('hidden');
+        // Your actual asynchronous action here...
+        console.log('Data fetched!');
+    }, 2000); // Simulating a 2-second delay
+});*/
+
