@@ -115,7 +115,7 @@ header {
 
 .button-div button {
     cursor: pointer;
-    background-color: #c8831c;
+    background-color: #e07d1e;
     border-radius: 6px;
     font-size: 16px;
     border: 0;
@@ -129,7 +129,7 @@ header {
 
 .button-div button:hover {
     transition: ease-in-out 2ms;
-    background-color: #856123;
+    background-color: #a05b18;
 }
 
 .img-div {
@@ -190,12 +190,12 @@ header {
     gap: 46px;
     border: 0;
     color: white;
-    background-color: #4B5043;
+    background-color: #e07d1e;
     cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #6a736a;
+    background-color: #a05b18;
     transition: 0.2s ease-in-out;
 }
 

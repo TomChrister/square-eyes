@@ -159,6 +159,11 @@ footer span {
     cursor: pointer;
 }
 
+.purchase-button:hover {
+    transition: ease-in-out 2ms;
+    background-color: #a05b18;
+}
+
 .body-container {
     display: flex;
     justify-content: center;
