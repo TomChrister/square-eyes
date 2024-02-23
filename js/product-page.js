@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function (){
                 <p>Genre: ${movieDetails.genre}</p>
                 <p>Released: ${movieDetails.released}</p>
                 <p>Rating: ${movieDetails.rating}</p>
-                <button class="add-to-cart-btn" data-id="${movieDetails.id}" data-title="${movieDetails.title}" data-price="${movieDetails.price}">Buy $${movieDetails.discountedPrice}</button>
+                <button class="add-to-cart-btn" data-id="${movieDetails.id}" data-title="${movieDetails.title}" data-price="${movieDetails.price}">Add to cart $${movieDetails.discountedPrice}</button>
             </div>
             </div>
             `;

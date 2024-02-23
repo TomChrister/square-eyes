@@ -4,7 +4,6 @@ const cartCounterElement = document.querySelector(`.cart-counter`);
 const closeButton = document.getElementById('closeButton');
 const cartDropdown = document.getElementById('cartDropdown');
 
-
 function fetchAndDisplayMovies() {
     fetch(`https://api.noroff.dev/api/v1/square-eyes`)
         .then(response => response.json())
@@ -33,10 +32,7 @@ function fetchAndDisplayMovies() {
                         </a>
                         <div class="info-div">
                             <h2 class="title">${movie.title}</h2>        
-                            <span class="description">${movie.released}</span>
-                            <span class="description">${movie.genre}</span>
-                            <span class="rating">Rating ${movie.rating}</span>  
-                            <span>${priceHTML}</span>
+                            <span class="description">${movie.released} - ${priceHTML}</span>                
                             <div class="button-div">
                                 <button class="add-to-cart-btn" data-id="${movie.id}" data-title="${movie.title}" data-price="${movie.price}">Add to cart</button>
                             </div>
@@ -49,7 +45,6 @@ function fetchAndDisplayMovies() {
             });
         })
         .catch(error => {
-            console.error('Error fetching movies:', error);
         });
 }
 
@@ -178,3 +173,20 @@ document.getElementById('viewDetailsButton').addEventListener('click', function(
 
 // Fetch and display movies initially
 fetchAndDisplayMovies();
+/*
+const fetchDataBtn = document.getElementById('fetchDataBtn');
+const loadingIndicator = document.getElementById('loadingIndicator');
+
+fetchDataBtn.addEventListener('click', () => {
+    // Show loading indicator
+    loadingIndicator.classList.remove('hidden');
+
+    // Simulate asynchronous action (fetching data)
+    setTimeout(() => {
+        // After a delay, hide loading indicator
+        loadingIndicator.classList.add('hidden');
+        // Your actual asynchronous action here...
+        console.log('Data fetched!');
+    }, 2000); // Simulating a 2-second delay
+});*/
+
