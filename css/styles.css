@@ -130,7 +130,7 @@ header {
 
 .button-div button:hover {
     transition: ease-in-out 2ms;
-    background-color: #96570b;
+
 }
 
 .img-div {
@@ -196,7 +196,7 @@ header {
 }
 
 .btn:hover {
-    background-color: #96570b;
+
     transition: 0.2s ease-in-out;
 }
 
