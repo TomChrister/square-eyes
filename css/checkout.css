@@ -44,7 +44,7 @@ header {
 .nav-list li {
     display: flex;
     justify-content: center;
-    margin: 30px;
+    margin: 20px 96px 0 0;
     cursor: pointer;
 }
 
@@ -152,7 +152,7 @@ footer span {
 .purchase-button {
     width: 122px;
     height: 34px;
-    background-color: #ab5400;
+    background-color: #e07d1ec4;
     border: 0;
     border-radius: 4px;
     font-size: 16px;
@@ -161,7 +161,8 @@ footer span {
 }
 
 .purchase-button:hover {
-
+    background-color: #96570b;
+    transition: 0.2ms ease-in;
 }
 
 .body-container {
