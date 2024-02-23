@@ -151,12 +151,17 @@ footer span {
 .purchase-button {
     width: 122px;
     height: 34px;
-    background-color: #e07d1e;
+    background-color: #ab5400;
     border: 0;
     border-radius: 4px;
     font-size: 16px;
     color: white;
     cursor: pointer;
+}
+
+.purchase-button:hover {
+    background-color: #c4802c;
+    transition: 0.2ms ease-in;
 }
 
 .body-container {
@@ -167,7 +172,7 @@ footer span {
 .vertical-line {
     width: 1px;
     height: 412px;
-    background-color: white;
+    background-color: #96570b;
     margin: 0 100px 0 100px;
     opacity: 0.7;
 }
@@ -255,3 +260,7 @@ form input {
     font-size: 14px;
 }
 
+.p-total {
+    font-size: 20px;
+    color: #e07d1e;
+}
