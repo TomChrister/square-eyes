@@ -3,13 +3,14 @@ let cartArray = [];
 const cartCounterElement = document.querySelector(`.cart-counter`);
 const closeButton = document.getElementById('closeButton');
 const cartDropdown = document.getElementById('cartDropdown');
+cartArray = JSON.parse(localStorage.getItem('cartArray')) || [];
 
 function fetchAndDisplayMovies() {
     fetch(`https://api.noroff.dev/api/v1/square-eyes`)
         .then(response => response.json())
         .then(result => {
             console.log(result);
-            moviesContainer.innerHTML = ''; // Clear previous content
+            moviesContainer.innerHTML = '';
             result.forEach(movie => {
                 let priceHTML;
                 if (movie.onSale) {
@@ -34,7 +35,10 @@ function fetchAndDisplayMovies() {
                             <h2 class="title">${movie.title}</h2>        
                             <span class="description">${movie.released} - ${priceHTML}</span>                
                             <div class="button-div">
-                                <button class="add-to-cart-btn" data-id="${movie.id}" data-title="${movie.title}" data-price="${movie.price}">Add to cart</button>
+                                <button class="add-to-cart-btn" data-id="${movie.id}"
+                                 data-title="${movie.title}"
+                                 data-price="${movie.price}">
+                                 Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -49,9 +53,6 @@ function fetchAndDisplayMovies() {
         });
 }
 
-cartArray = JSON.parse(localStorage.getItem('cartArray')) || [];
-
-// Call updateCartUI to display the cart items on page load
 updateCartUI();
 
 function saveCartArrayToLocalStorage() {
@@ -70,13 +71,10 @@ function handleAddToCart(event) {
 }
 
 function addToCartArray(item) {
-    // Check if the item is already in the cart
     const existingItem = cartArray.find(cartItem => cartItem.id === item.id);
     if (existingItem) {
-        // If it is, increment its quantity
         existingItem.quantity++;
     } else {
-        // Otherwise, add the item to the cart with quantity 1
         cartArray.push({...item, quantity: 1});
     }
 
@@ -84,12 +82,9 @@ function addToCartArray(item) {
 }
 
 function removeItemFromCart(id) {
-    // Find the index of the item in the cart array
     const index = cartArray.findIndex(item => item.id === id);
     if (index !== -1) {
-        // Remove the item from the cart array
         cartArray.splice(index, 1);
-        // Update the cart UI
         updateCartUI();
         saveCartArrayToLocalStorage();
     }
@@ -99,31 +94,25 @@ function updateCartUI() {
     cartCounterElement.textContent = cartArray.reduce((total, item) => total + item.quantity, 0);
 
     const cartItemsElement = document.getElementById('cartItems');
-    // Clear the cart items element before updating
     cartItemsElement.innerHTML = '';
 
     let totalCost = 0;
 
-    // Iterate over the items in the cart and display them
     cartArray.forEach(item => {
         const listItem = document.createElement('li');
         let displayText = `${item.title} - $${item.price}`;
-        // Display the item title and quantity only when quantity is greater than 2
         if (item.quantity > 1) {
             displayText += ` (${item.quantity})`;
         }
         listItem.textContent = displayText;
 
-        // Create a remove button for each item
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
         removeButton.classList.add(`remove-button`);
         removeButton.addEventListener('click', () => removeItemFromCart(item.id));
 
-        // Append the remove button to the list item
         listItem.appendChild(removeButton);
 
-        // Append the list item to the cart items element
         cartItemsElement.appendChild(listItem);
 
         totalCost += item.price * item.quantity;
@@ -138,7 +127,6 @@ function toggleCart() {
     cartDropdown.classList.toggle('show');
 }
 
-// Add a click event listener to the close button
 closeButton.addEventListener('click', function() {
     // Toggle the 'show' class of the dropdown menu
     cartDropdown.classList.toggle('show');
@@ -149,14 +137,13 @@ function filterMovies(genre) {
     movieContainers.forEach(container => {
         const movieGenre = container.dataset.genre;
         if (genre === 'All' || movieGenre === genre) {
-            container.style.display = 'block'; // Display movies matching the selected genre or when 'All' is selected
+            container.style.display = 'block';
         } else {
-            container.style.display = 'none'; // Hide movies that don't match the selected genre
+            container.style.display = 'none';
         }
     });
 }
 
-// Event listener for genre buttons
 document.getElementById("btnContainer").addEventListener('click', function (event) {
     if (event.target.tagName === 'BUTTON') {
         const genre = event.target.textContent.trim();
@@ -164,30 +151,9 @@ document.getElementById("btnContainer").addEventListener('click', function (even
     }
 });
 
-// Event listener for the "View Movie Details" button
 document.getElementById('viewDetailsButton').addEventListener('click', function() {
-    // Store cart data in localStorage
     localStorage.setItem('cart', JSON.stringify(cartArray));
-    // Navigate to the next page
     window.location.href = 'checkout.html';
 });
 
-// Fetch and display movies initially
 fetchAndDisplayMovies();
-/*
-const fetchDataBtn = document.getElementById('fetchDataBtn');
-const loadingIndicator = document.getElementById('loadingIndicator');
-
-fetchDataBtn.addEventListener('click', () => {
-    // Show loading indicator
-    loadingIndicator.classList.remove('hidden');
-
-    // Simulate asynchronous action (fetching data)
-    setTimeout(() => {
-        // After a delay, hide loading indicator
-        loadingIndicator.classList.add('hidden');
-        // Your actual asynchronous action here...
-        console.log('Data fetched!');
-    }, 2000); // Simulating a 2-second delay
-});*/
-
