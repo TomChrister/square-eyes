@@ -45,6 +45,7 @@ function fetchAndDisplayMovies() {
             });
         })
         .catch(error => {
+            console.log(error);
         });
 }
 
