@@ -1,10 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Retrieve cart data from localStorage
-    const cartData = localStorage.getItem('cartArray'); // Change 'cart' to 'cartArray'
-    // Parse the JSON string to get the cart array
-    const cartArray = JSON.parse(cartData) || []; // Initialize as an empty array if no data is present
+    const cartData = localStorage.getItem('cartArray');
+    const cartArray = JSON.parse(cartData) || [];
 
-    // Display cart information (for example, in a list)
     const cartListElement = document.getElementById('cartList');
     let totalSum = 0;
 
@@ -21,41 +18,29 @@ document.addEventListener('DOMContentLoaded', function() {
         purchaseButton.textContent = 'Purchase';
         purchaseButton.classList.add('purchase-button');
 
-        // Define the function to handle the click event
         function purchaseButtonClickHandler() {
-            // Store cart data in localStorage
             localStorage.setItem('cartDataForConfirmation', JSON.stringify(cartArray));
-            // Redirect to order confirmation page
-            window.location.href = 'confirmation.html'; // Change the URL to your order confirmation page
+            window.location.href = 'confirmation.html';
         }
 
-        // Attach the event listener to the new button
         purchaseButton.addEventListener('click', purchaseButtonClickHandler);
 
-        // Find the form-div element in the HTML
         const formDiv = document.querySelector('.form-div');
 
-        // Check if the form-div element exists
         if (formDiv) {
-            // Append the purchaseButton HTML to the form-div
             formDiv.appendChild(purchaseButton);
         }
 
-        // Create a div to wrap the total sum paragraph
         const totalSumWrapper = document.createElement('div');
 
-        // Create the total sum paragraph
         const totalSumElement = document.createElement('p');
         totalSumElement.classList.add(`p-total`)
         totalSumElement.textContent = `Total: $${totalSum.toFixed(2)}`;
 
-        // Append the total sum paragraph to the div
         totalSumWrapper.appendChild(totalSumElement);
 
-        // Append the div to the parent element of cartListElement
         cartListElement.parentNode.appendChild(totalSumWrapper);
     } else {
-        // Handle case when cart is empty
         const emptyCartMessage = document.createElement('p');
         emptyCartMessage.textContent = 'Your cart is empty.';
         cartListElement.appendChild(emptyCartMessage);
