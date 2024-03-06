@@ -9,7 +9,6 @@ function fetchAndDisplayMovies() {
     fetch(`https://api.noroff.dev/api/v1/square-eyes`)
         .then(response => response.json())
         .then(result => {
-            console.log(result);
             moviesContainer.innerHTML = '';
             result.forEach(movie => {
                 let priceHTML;
@@ -48,8 +47,7 @@ function fetchAndDisplayMovies() {
                 button.addEventListener(`click`, handleAddToCart);
             });
         })
-        .catch(error => {
-            console.log(error);
+        .catch(_=> {
         });
 }
 
