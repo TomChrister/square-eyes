@@ -32,8 +32,7 @@ document.addEventListener("DOMContentLoaded", function (){
             const buyButton = document.querySelector('.add-to-cart-btn');
             buyButton.addEventListener('click', handleAddToCart);
         })
-        .catch(error => {
-            console.error('Error fetching movie details:', error);
+        .catch(_=> {
         });
 });
 
