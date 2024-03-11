@@ -14,4 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
         emptyCartMessage.textContent = 'Your cart is empty.';
         cartListElement.appendChild(emptyCartMessage);
     }
+
+    document.getElementById(`lastPageButton`).addEventListener("click", function () {
+        localStorage.removeItem(`cartDataForConfirmation`);
+    });
+});
+
+window.addEventListener('beforeunload', function() {
+    localStorage.removeItem('cartArray');
 });

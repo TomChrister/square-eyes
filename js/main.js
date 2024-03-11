@@ -126,7 +126,6 @@ function toggleCart() {
 }
 
 closeButton.addEventListener('click', function() {
-    // Toggle the 'show' class of the dropdown menu
     cartDropdown.classList.toggle('show');
 });
 
