@@ -5,7 +5,6 @@ const closeButton = document.getElementById('closeButton');
 const cartDropdown = document.getElementById('cartDropdown');
 cartArray = JSON.parse(localStorage.getItem('cartArray')) || [];
 
-
 function fetchAndDisplayMovies() {
     fetch(`https://v2.api.noroff.dev/square-eyes`)
         .then(response => response.json())
@@ -56,6 +55,56 @@ function fetchAndDisplayMovies() {
             console.error('Failed to fetch movies.');
         });
 }
+
+const carousel = document.querySelector('.carousel');
+const images = document.querySelectorAll('.carousel img');
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+const pagination = document.querySelector('.pagination');
+
+let currentIndex = 0;
+
+// Create pagination dots dynamically based on the number of images
+images.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (index === 0) dot.classList.add('active'); // Make the first dot active initially
+    dot.addEventListener('click', () => goToSlide(index));
+    pagination.appendChild(dot);
+});
+
+function updateCarousel() {
+    const offset = -currentIndex * 100;
+    carousel.style.transform = `translateX(${offset}%)`;
+    updatePagination();
+}
+
+function updatePagination() {
+    document.querySelectorAll('.pagination .dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+}
+
+function showNextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateCarousel();
+}
+
+function showPrevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateCarousel();
+}
+
+function goToSlide(index) {
+    currentIndex = index;
+    updateCarousel();
+}
+
+nextButton.addEventListener('click', showNextImage);
+prevButton.addEventListener('click', showPrevImage);
+
+// Optional: Automatically scroll every 3 seconds
+setInterval(showNextImage, 3000);
 
 
 updateCartUI();

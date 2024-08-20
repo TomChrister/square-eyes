@@ -4,8 +4,13 @@
     font-family: Montserrat, sans-serif;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
 body {
-    padding: 8px;
     background-color: #252627;
 }
 
@@ -30,6 +35,12 @@ header {
     margin: 0 46px 20px 46px;
 }
 
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
 .nav-list {
     list-style-type: none;
     color: white;
@@ -37,32 +48,21 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0;
+    gap: 24px;
+    padding: 8px 0 0 0;
 }
 
 .nav-list li {
     display: flex;
     justify-content: center;
-    margin: 20px 96px 0 0;
     cursor: pointer;
-}
-
-.nav-list li {
-    transition: color 0.3s ease;
+    opacity: 0.5;
+    gap: 6px;
 }
 
 .nav-list li:hover {
-    color: #b0aaaa;
-}
-
-.nav-list li a {
-    transition: color 0.3s ease;
-    text-decoration: none;
-    color: white;
-}
-
-.nav-list li a:hover {
-    color: #b0aaaa;
+    opacity: 1;
+    transition: 0.3s ease;
 }
 
 .nav-icons {
@@ -75,6 +75,76 @@ header {
 .fa-user {
     padding: 18px;
 }
+
+.carousel-container img {
+    width: 100%;
+    height: 467px;
+    object-fit: cover;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 64vh;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.pagination .dot {
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination .dot.active {
+    background-color: white;
+}
+
+
 
 @media (min-width: 500px) {
     .mobile-header {
