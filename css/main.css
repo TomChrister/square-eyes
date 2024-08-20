@@ -7,7 +7,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-x: hidden;
 }
 
 body {
@@ -32,7 +32,7 @@ header {
     z-index: 1;
     height: 86px;
     font-family: Barlow, sans-serif;
-    margin: 0 46px 20px 46px;
+    margin: 0 46px 0 46px;
 }
 
 .header-container {
@@ -256,6 +256,7 @@ button.next {
     display: flex;
     justify-content: center;
     gap: 8px;
+    padding: 20px 0 0 0;
 }
 
 .btn {

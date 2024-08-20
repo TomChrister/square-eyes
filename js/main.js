@@ -64,11 +64,10 @@ const pagination = document.querySelector('.pagination');
 
 let currentIndex = 0;
 
-// Create pagination dots dynamically based on the number of images
 images.forEach((_, index) => {
     const dot = document.createElement('div');
     dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active'); // Make the first dot active initially
+    if (index === 0) dot.classList.add('active');
     dot.addEventListener('click', () => goToSlide(index));
     pagination.appendChild(dot);
 });
@@ -103,8 +102,7 @@ function goToSlide(index) {
 nextButton.addEventListener('click', showNextImage);
 prevButton.addEventListener('click', showPrevImage);
 
-// Optional: Automatically scroll every 3 seconds
-setInterval(showNextImage, 3000);
+setInterval(showNextImage, 4000);
 
 
 updateCartUI();
