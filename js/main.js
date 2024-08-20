@@ -5,12 +5,14 @@ const closeButton = document.getElementById('closeButton');
 const cartDropdown = document.getElementById('cartDropdown');
 cartArray = JSON.parse(localStorage.getItem('cartArray')) || [];
 
+
 function fetchAndDisplayMovies() {
-    fetch(`https://api.noroff.dev/api/v1/square-eyes`)
+    fetch(`https://v2.api.noroff.dev/square-eyes`)
         .then(response => response.json())
         .then(result => {
+            const movies = result.data;
             moviesContainer.innerHTML = '';
-            result.forEach(movie => {
+            movies.forEach(movie => {
                 let priceHTML;
                 if (movie.onSale) {
                     priceHTML = `
@@ -23,11 +25,14 @@ function fetchAndDisplayMovies() {
                     `;
                 }
 
+                const imageUrl = movie.image.url;
+                const imageAlt = movie.image.alt;
+
                 moviesContainer.innerHTML += `
                     <div class="movie-container" data-genre="${movie.genre}">
                         <a href="product-page.html?id=${movie.id}" class="movie-link">
                             <div class="img-div">
-                                <img src="${movie.image}" alt="poster">
+                                <img src="${imageUrl}" alt="${imageAlt}">
                             </div>
                         </a>
                         <div class="info-div">
@@ -43,13 +48,15 @@ function fetchAndDisplayMovies() {
                     </div>
                 `;
             });
-            document.querySelectorAll(`.add-to-cart-btn`). forEach(button => {
+            document.querySelectorAll(`.add-to-cart-btn`).forEach(button => {
                 button.addEventListener(`click`, handleAddToCart);
             });
         })
-        .catch(_=> {
+        .catch(_ => {
+            console.error('Failed to fetch movies.');
         });
 }
+
 
 updateCartUI();
 
