@@ -61,7 +61,6 @@ const images = document.querySelectorAll('.carousel img');
 const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 const pagination = document.querySelector('.pagination');
-
 let currentIndex = 0;
 
 images.forEach((_, index) => {
@@ -102,7 +101,9 @@ function goToSlide(index) {
 nextButton.addEventListener('click', showNextImage);
 prevButton.addEventListener('click', showPrevImage);
 
+/*
 setInterval(showNextImage, 4000);
+*/
 
 
 updateCartUI();
