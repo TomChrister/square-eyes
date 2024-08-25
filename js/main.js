@@ -32,6 +32,7 @@ function fetchAndDisplayMovies() {
                         <a href="product-page.html?id=${movie.id}" class="movie-link">
                             <div class="img-div">
                                 <img src="${imageUrl}" alt="${imageAlt}">
+                                <p class="view-more">View more</p>
                             </div>
                         </a>
                         <div class="info-div">
@@ -101,9 +102,7 @@ function goToSlide(index) {
 nextButton.addEventListener('click', showNextImage);
 prevButton.addEventListener('click', showPrevImage);
 
-/*
 setInterval(showNextImage, 4000);
-*/
 
 
 updateCartUI();

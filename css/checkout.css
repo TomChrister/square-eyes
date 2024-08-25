@@ -56,16 +56,6 @@ header {
     color: #b0aaaa;
 }
 
-.nav-list li a {
-    transition: color 0.3s ease;
-    text-decoration: none;
-    color: white;
-}
-
-.nav-list li a:hover {
-    color: #b0aaaa;
-}
-
 .nav-icons {
     display: flex;
     justify-content: center;
@@ -186,12 +176,11 @@ footer span {
 .checkbox-container {
     display: flex;
     flex-direction: row;
-    align-items: center; /* Align items vertically */
+    align-items: center;
 }
 
-/* Style the label to ensure it aligns correctly */
 .checkbox-container label {
-    margin-left: 8px; /* Adjust margin for spacing */
+    margin-left: 8px;
 }
 
 .form-div {
@@ -231,20 +220,20 @@ form input {
 }
 
 #number {
-    font-size: 18px;
+    font-size: 20px;
     border-radius: 4px 4px 0 0;
     border: 0;
 }
 
 #expirationMonth {
-    font-size: 18px;
+    font-size: 20px;
     border-radius: 0 0 0 4px;
     border: 0;
     border-right: 1px solid grey;
 }
 
 #expirationYear {
-    font-size: 18px;
+    font-size: 20px;
     border-radius: 0 0 4px 0;;
     border: 0;
 }

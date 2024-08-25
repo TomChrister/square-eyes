@@ -2,39 +2,40 @@ const closeButton = document.getElementById('closeButton');
 const cartDropdown = document.getElementById('cartDropdown');
 const cartArray = JSON.parse(localStorage.getItem('cartArray')) || [];
 
-document.addEventListener("DOMContentLoaded", function (){
+document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const movieID = params.get("id");
 
-    fetch(`https://api.noroff.dev/api/v1/square-eyes/${movieID}`)
+    fetch(`https://v2.api.noroff.dev/square-eyes/${movieID}`)
         .then(response => response.json())
         .then(movieDetails => {
+            const movie = movieDetails.data;
             const productContainer = document.getElementById("product-container");
             productContainer.innerHTML = `
-            <div>
+            <div class="product-container">
                 <div class="img-container">
-                    <img src="${movieDetails.image}" alt="poster">
+                    <img src="${movie.image.url}" alt="${movie.image.alt}">
                 </div>
-            <div class="movie-info">
-                <h2>${movieDetails.title}</h2>
-                <p>${movieDetails.description}</p>
-                <p>Genre: ${movieDetails.genre}</p>
-                <p>Released: ${movieDetails.released}</p>
-                <p>Rating: ${movieDetails.rating}</p>
-                <button class="add-to-cart-btn" data-id="${movieDetails.id}"
-                 data-title="${movieDetails.title}"
-                  data-price="${movieDetails.price}">
-                  Add to cart $${movieDetails.discountedPrice}</button>
-            </div>
+                <div class="movie-info">
+                    <h2>${movie.title}</h2>
+                    <p>${movie.description}</p>
+                    <p><i class="fa-brands fa-imdb"></i> ${movie.rating} | ${movie.genre} | ${movie.released}</p>
+                    <button class="add-to-cart-btn" data-id="${movie.id}"
+                    data-title="${movie.title}"
+                    data-price="${movie.price}">
+                    Add to cart $${movie.discountedPrice}</button>
+                </div>
             </div>
             `;
 
             const buyButton = document.querySelector('.add-to-cart-btn');
             buyButton.addEventListener('click', handleAddToCart);
         })
-        .catch(_=> {
+        .catch(error => {
+            console.error('Failed to fetch movie details:', error);
         });
 });
+
 
 function renderCartItems() {
     const cartItemsElement = document.getElementById('cartItems');

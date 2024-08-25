@@ -27,7 +27,14 @@ header {
     z-index: 1;
     height: 86px;
     font-family: Barlow, sans-serif;
-    margin: 0 46px 20px 46px;}
+    margin: 0 46px 0 46px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
 
 .nav-list {
     list-style-type: none;
@@ -36,32 +43,23 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0;
+    gap: 24px;
+    padding: 8px 0 0 0;
 }
 
 .nav-list li {
     display: flex;
     justify-content: center;
-    margin: 20px 96px 0 0;
     cursor: pointer;
-}
-
-.nav-list li {
-    transition: color 0.3s ease;
+    opacity: 0.5;
+    gap: 6px;
+    font-size: 1rem;
+    font-weight: 200;
 }
 
 .nav-list li:hover {
-    color: #b0aaaa;
-}
-
-.nav-list li a {
-    transition: color 0.3s ease;
-    text-decoration: none;
-    color: white;
-}
-
-.nav-list li a:hover {
-    color: #b0aaaa;
+    opacity: 1;
+    transition: 0.3s ease;
 }
 
 .nav-icons {
@@ -87,10 +85,14 @@ header {
     }
 }
 
+.product-container {
+    display: flex;
+    padding: 34px 0 0 34px;
+}
+
 .img-container {
     display: flex;
     justify-content: center;
-    padding-bottom: 16px;
 }
 
 .img-container img {
@@ -106,8 +108,15 @@ header {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 16px;
+    padding: 0 0 0 22px;
+    align-self: center;
+}
+
+.movie-info i {
+    font-size: 1.7rem;
+    color: #deb522;
+    padding: 0 6px 0 0;
 }
 
 footer {
@@ -210,9 +219,8 @@ footer span {
 
 .movie-info p {
     display: flex;
-    justify-content: center;
     width: 482px;
-    text-align:left;
+    align-items: center;
 }
 
 .add-to-cart-btn {

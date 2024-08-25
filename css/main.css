@@ -226,6 +226,24 @@ button.next {
     font-size: 24px;
 }
 
+.img-div .view-more {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #e07d1e;
+    filter: drop-shadow(2px 4px 6px black);
+    font-size: 18px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.img-div:hover .view-more {
+    opacity: 1;
+}
+
 .button-div button {
     cursor: pointer;
     background-color: #e07d1e;
@@ -252,7 +270,7 @@ button.next {
 
 .img-div {
     width: 306px;
-    height: 437px;
+    height: 436px;
     overflow: hidden;
 }
 
@@ -291,20 +309,26 @@ button.next {
 
 #btnContainer {
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 20px 0 0 0;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 20px 0 0 60px;
+}
+
+.sale {
+    font-size: 26px;
+    color: white;
+    font-weight: 500;
+    padding: 16px 0 0 60px;
 }
 
 .btn {
-    font-size: 16px;
-    width: 146px;
-    height: 38px;
+    font-size: 14px;
+    width: 78px;
+    height: 32px;
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 46px;
     border: 0;
     color: white;
     background-color: #e07d1e;
@@ -314,11 +338,6 @@ button.next {
 .btn:hover {
     background-color: #96570b;
     transition: 0.2ms ease-in;
-}
-
-.btn:hover {
-
-    transition: 0.2s ease-in-out;
 }
 
 .img-div img {
