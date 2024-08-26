@@ -36,7 +36,8 @@ body {
 #confirmationCartList {
     background-color: #369f36;
     border-radius: 6px;
-    width: 450px;
+    width: 32vw;
+    min-width: 420px;
     height: 210px;
     display: flex;
     flex-direction: column;
@@ -64,6 +65,8 @@ body {
 
 .span-div {
     color: #000000b5;
+    white-space: normal;
+    text-align: center;
 }
 
 .homepage-span a {
@@ -74,4 +77,23 @@ body {
 .homepage-span a:hover {
     transition: 0.2ms ease-in-out;
     color: #96570b;
+}
+
+@media screen and (max-width: 970px){
+    .body-container {
+        flex-direction: column;
+    }
+
+    .checkbox-container {
+        gap: 16px;
+        align-items: center;
+    }
+
+    .vertical-line {
+        width: 73vw;
+        height: 1px;
+        display: flex;
+        align-self: center;
+        margin: 20px 0;
+    }
 }

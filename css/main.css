@@ -1,3 +1,5 @@
+@import "header-footer.css";
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,70 +14,6 @@ html, body {
 
 body {
     background-color: #252627;
-}
-
-.mobile-header {
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.header-logo svg {
-    display: flex;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: transparent;
-    z-index: 1;
-    height: 86px;
-    font-family: Barlow, sans-serif;
-    margin: 0 46px 0 46px;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
-.nav-list {
-    list-style-type: none;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 24px;
-    padding: 8px 0 0 0;
-}
-
-.nav-list li {
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0.5;
-    gap: 6px;
-    font-size: 1rem;
-    font-weight: 200;
-}
-
-.nav-list li:hover {
-    opacity: 1;
-    transition: 0.3s ease;
-}
-
-.nav-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.fa-user {
-    padding: 18px;
 }
 
 .carousel-container img {
@@ -186,18 +124,6 @@ button.next {
 
 .pagination .dot.active {
     background-color: white;
-}
-
-@media (min-width: 500px) {
-    .mobile-header {
-        display: none;
-    }
-}
-
-@media (min-width: 971px) {
-    .mobile-header {
-        display: flex;
-    }
 }
 
 #movie-container {
@@ -340,33 +266,33 @@ button.next {
     transition: 0.2ms ease-in;
 }
 
+@media (max-width: 570px) {
+    #btnContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+}
+
+@media (max-width: 670px) {
+    .sale, #btnContainer {
+        padding: 16px 0 0 0;
+    }
+
+    .filter-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .img-div img {
     transition: filter 0.4s ease;
 }
 
 .img-div:hover img {
     filter: grayscale(100%);
-}
-
-footer {
-    padding: 90px 0 0 0;
-}
-
-.footer-div {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-footer span {
-    color: white;
-}
-
-.svg-icons {
-    display: flex;
-    position: fixed;
-    z-index: 1;
 }
 
 .cart-dropdown {
@@ -376,7 +302,7 @@ footer span {
     right: 0;
     background-color: #fff;
     padding: 10px;
-    z-index: 10;
+    z-index: 15;
     width: 438px;
     height: 60%;
     border-radius: 4px 0 0 4px;

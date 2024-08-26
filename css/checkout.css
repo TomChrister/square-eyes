@@ -10,16 +10,6 @@ body {
     color: white;
 }
 
-.mobile-header {
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.header-logo svg {
-    display: flex;
-}
-
 header {
     display: flex;
     justify-content: space-between;
@@ -31,31 +21,6 @@ header {
     margin: 0 46px 54px 46px;
 }
 
-.nav-list {
-    list-style-type: none;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0;
-}
-
-.nav-list li {
-    display: flex;
-    justify-content: center;
-    margin: 20px 96px 0 0;
-    cursor: pointer;
-}
-
-.nav-list li {
-    transition: color 0.3s ease;
-}
-
-.nav-list li:hover {
-    color: #b0aaaa;
-}
-
 .nav-icons {
     display: flex;
     justify-content: center;
@@ -65,38 +30,6 @@ header {
 
 .fa-user {
     padding: 18px;
-}
-
-@media (min-width: 500px) {
-    .mobile-header {
-        display: none;
-    }
-}
-
-@media (min-width: 971px) {
-    .mobile-header {
-        display: flex;
-    }
-}
-
-footer {
-    padding: 120px 0 0 0;
-}
-
-.footer-div {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-footer span {
-    color: white;
-}
-
-.svg-icons {
-    display: flex;
-    gap: 8px;
 }
 
 .checkout-container {
@@ -253,4 +186,43 @@ form input {
 .p-total {
     font-size: 20px;
     color: #e07d1e;
+}
+
+@media screen and (max-width: 970px){
+    .body-container {
+        flex-direction: column;
+    }
+
+    .checkout-container {
+        gap: 16px;
+        align-items: center;
+    }
+
+    .vertical-line {
+        width: 73vw;
+        height: 1px;
+        display: flex;
+        align-self: center;
+        margin: 20px 0;
+    }
+}
+
+footer {
+    padding: 120px 0 0 0;
+}
+
+.footer-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer span {
+    color: white;
+}
+
+.svg-icons {
+    display: flex;
+    gap: 8px;
 }
