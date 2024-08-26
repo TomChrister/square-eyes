@@ -102,7 +102,7 @@ function goToSlide(index) {
 nextButton.addEventListener('click', showNextImage);
 prevButton.addEventListener('click', showPrevImage);
 
-setInterval(showNextImage, 4000);
+setInterval(showNextImage, 3500);
 
 
 updateCartUI();
