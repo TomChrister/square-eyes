@@ -1,24 +1,24 @@
-# SquareEyes - Connecting film lovers
+# SquareEyes - Connecting film lovers 🎥
 
 A website for buying movies.
 
-## Project overview
+## Project overview 📈
 
 A web application built with HTML, CSS and JavaScript. In this app you are able to filter movies, and add and remove items in the cart. The app also simulates a checkout and confirmation page aswell.
 The movies and it's info is fetched with an API. The website if fully responsive.
 
-## Installation
+## Installation 🔧
 
 https://square-eyes-live.vercel.app/
 
-## Features
+## Features 🌟
 - Filtering movies by category
 - Add and remove products in the cart
 - View a single product with more information
 - Summary of the cart on a checkout page
 - Order confirmation after checking out
 
-## Technology used
+## Technology used 💻
 - HTML, CSS and JavaScript
 - Figma
 - Noroff API
