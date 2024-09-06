@@ -37,7 +37,7 @@ body {
     background-color: #369f36;
     border-radius: 6px;
     width: 32vw;
-    min-width: 420px;
+    min-width: 362px;
     height: 210px;
     display: flex;
     flex-direction: column;
@@ -95,5 +95,11 @@ body {
         display: flex;
         align-self: center;
         margin: 20px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .span-div {
+        margin: 0 1rem;
     }
 }

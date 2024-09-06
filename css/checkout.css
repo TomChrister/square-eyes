@@ -226,3 +226,17 @@ footer span {
     display: flex;
     gap: 8px;
 }
+
+@media (max-width: 500px) {
+    .expiration-inputs {
+        flex-direction: column;
+    }
+
+    #expirationMonth {
+        border-right: none;
+    }
+
+    #expirationYear {
+        border-radius: 4px;
+    }
+}

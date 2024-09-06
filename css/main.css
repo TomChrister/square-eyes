@@ -303,7 +303,8 @@ button.next {
     background-color: #fff;
     padding: 10px;
     z-index: 15;
-    width: 438px;
+    width: 26vw;
+    min-width: 318px;
     height: 60%;
     border-radius: 4px 0 0 4px;
     box-shadow: 0 1px 6px rgba(227, 162, 66, 0.42);
@@ -370,4 +371,10 @@ button.next {
 #totalCost {
     position: absolute;
     top: 84%;
+}
+
+@media (max-width: 500px) {
+    .button-div button {
+        width: 140px;
+    }
 }
